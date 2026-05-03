@@ -326,8 +326,8 @@ function Contact() {
       <section className="section">
         <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 96, alignItems: 'start' }}>
           <div style={{ position: 'sticky', top: 120 }}>
-            <div style={{ height: 380, marginBottom: 40 }}>
-              <Placeholder label="Houston · Skyline" variant="taupe" />
+            <div style={{ height: 380, marginBottom: 40, overflow: 'hidden' }}>
+              <img src={window.__resources.houstonSkyline} alt="Houston Skyline" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div className="eyebrow" style={{ marginBottom: 20 }}>Direct</div>
             <div style={{ fontSize: 14, lineHeight: 2, color: 'var(--ink-70)', marginBottom: 32 }}>
