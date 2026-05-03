@@ -5,28 +5,33 @@ function Testimonials({ onNav }) {
   const [review, setReview] = useState({ name: '', email: '', city: '', type: 'Buyer', quote: '' });
   const [sent, setSent] = useState(false);
 
-  const submitReview = (e) => {
+  const submitReview = async (e) => {
     e.preventDefault();
-    const subject = `New Review from ${review.name || 'a client'}`;
-    const body = [
-      `Name: ${review.name}`,
-      `Email: ${review.email}`,
-      `Neighborhood / City: ${review.city || '(not provided)'}`,
-      `Client Type: ${review.type}`,
-      '',
-      'Review:',
-      review.quote || '(no review text)',
-      '',
-      '— Submitted via hoangproperties.com testimonials page for your review and approval before posting.',
-    ].join('\n');
-    const url = `mailto:loan@hoangproperties.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = url;
-    setSent(true);
-    setTimeout(() => {
-      setSent(false);
-      setShowModal(false);
-      setReview({ name: '', email: '', city: '', type: 'Buyer', quote: '' });
-    }, 4000);
+    try {
+      const res = await fetch('https://formspree.io/f/mvzlkgld', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `New review from ${review.name || 'a client'}`,
+          _replyto: review.email,
+          form: 'Testimonials review',
+          name: review.name,
+          email: review.email,
+          city: review.city || '(not provided)',
+          clientType: review.type,
+          review: review.quote || '(no review text)',
+        }),
+      });
+      if (!res.ok) throw new Error('Formspree returned ' + res.status);
+      setSent(true);
+      setTimeout(() => {
+        setSent(false);
+        setShowModal(false);
+        setReview({ name: '', email: '', city: '', type: 'Buyer', quote: '' });
+      }, 4000);
+    } catch (err) {
+      alert('Could not send your review just now. Please email loan@hoangproperties.com directly.');
+    }
   };
 
   const quotes = [
@@ -277,7 +282,7 @@ function Contact() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', preferredContact: 'Email, please', message: '' });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const intentLabel = {
       buying: 'Buying a home',
@@ -287,23 +292,28 @@ function Contact() {
       relocating: 'Relocating to Houston',
       other: 'Something else',
     }[intent] || intent;
-    const subject = `New inquiry from ${form.name || 'the website'} — ${intentLabel}`;
-    const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Phone: ${form.phone || '(not provided)'}`,
-      `Preferred contact: ${form.preferredContact}`,
-      `Reason: ${intentLabel}`,
-      '',
-      'Message:',
-      form.message || '(no message)',
-      '',
-      '— Sent from hoangproperties.com contact form',
-    ].join('\n');
-    const url = `mailto:loan@hoangproperties.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = url;
-    setSent(true);
-    setTimeout(() => { setSent(false); setForm({ name: '', email: '', phone: '', preferredContact: 'Email, please', message: '' }); }, 4000);
+    try {
+      const res = await fetch('https://formspree.io/f/mvzlkgld', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `New inquiry from ${form.name || 'the website'} — ${intentLabel}`,
+          _replyto: form.email,
+          form: 'Contact',
+          name: form.name,
+          email: form.email,
+          phone: form.phone || '(not provided)',
+          preferredContact: form.preferredContact,
+          reason: intentLabel,
+          message: form.message || '(no message)',
+        }),
+      });
+      if (!res.ok) throw new Error('Formspree returned ' + res.status);
+      setSent(true);
+      setTimeout(() => { setSent(false); setForm({ name: '', email: '', phone: '', preferredContact: 'Email, please', message: '' }); }, 4000);
+    } catch (err) {
+      alert('Could not send your message just now. Please email loan@hoangproperties.com directly.');
+    }
   };
 
   return (
