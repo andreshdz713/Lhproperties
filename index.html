@@ -1428,8 +1428,12 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 0;
     text-transform: none;
     z-index: 100;
+    display: none;
   }
-  .nav-links.mobile-open { transform: translateX(0); }
+  .nav-links.mobile-open {
+    display: flex;
+    transform: translateX(0);
+  }
   .nav-links > a,
   .nav-dropdown {
     width: 100%;
