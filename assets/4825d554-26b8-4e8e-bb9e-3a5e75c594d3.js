@@ -333,7 +333,7 @@ function Contact() {
             </div>
             <div className="eyebrow" style={{ marginBottom: 16 }}>Elsewhere</div>
             <div style={{ display: 'flex', gap: 16, fontSize: 12, letterSpacing: '0.14em', textTransform: 'uppercase', fontFamily: 'JetBrains Mono, monospace' }}>
-              <a href="#" style={{ borderBottom: '1px solid var(--ink)', paddingBottom: 3 }}>Instagram</a>
+              <a href="https://www.instagram.com/loanhtx?igsh=N3loNmd6dDJ4MW42" target="_blank" rel="noopener" style={{ borderBottom: '1px solid var(--ink)', paddingBottom: 3 }}>Instagram</a>
               <a href="https://www.har.com/loan-hoang/agent_loaaannnh" target="_blank" rel="noopener" style={{ borderBottom: '1px solid var(--ink)', paddingBottom: 3 }}>HAR</a>
             </div>
           </div>
