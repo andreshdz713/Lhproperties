@@ -32,16 +32,24 @@ function Nav({ current, onNav }) {
   const renderDropdown = (id, label, open, setOpen, items) =>
   <div
     key={id}
-    className="nav-dropdown"
+    className={`nav-dropdown ${open ? 'open' : ''}`}
     onMouseEnter={() => setOpen(true)}
     onMouseLeave={() => setOpen(false)}>
-    
+
       <a
       href={`#${id}`}
-      onClick={(e) => {e.preventDefault();navTo(id);}}
+      onClick={(e) => {
+        e.preventDefault();
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+          setOpen(!open);
+        } else {
+          navTo(id);
+        }
+      }}
       className={current === id ? 'active' : ''}>
-      
+
         {label}
+        <span className="nav-dropdown-caret" aria-hidden="true">+</span>
       </a>
       <div className={`nav-menu ${open ? 'open' : ''}`}>
         {items.map(([sub, title, desc], i) =>
@@ -49,7 +57,7 @@ function Nav({ current, onNav }) {
         key={sub}
         href={`#${id}`}
         onClick={(e) => {e.preventDefault();navTo(id, sub);setOpen(false);}}>
-        
+
             <span className="nav-menu-num">{String(i + 1).padStart(2, '0')}</span>
             <span>
               <span className="nav-menu-title">{title}</span>
