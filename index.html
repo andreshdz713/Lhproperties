@@ -1509,6 +1509,18 @@ a { color: inherit; text-decoration: none; }
 
   /* FOOTER */
   footer { padding: 64px 24px 28px !important; }
+  footer > .container:first-child {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
+    padding-bottom: 48px !important;
+  }
+  footer > .container:first-child > div:first-child {
+    grid-column: 1 / -1;
+  }
+  footer > .container:first-child > div:first-child > .serif {
+    font-size: 32px !important;
+    max-width: 100% !important;
+  }
 
   /* CALCULATOR */
   .calc-grid-4 { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
@@ -1542,6 +1554,17 @@ a { color: inherit; text-decoration: none; }
   .section { padding: 48px 20px; }
   .section-sm { padding: 36px 20px; }
   footer { padding: 48px 20px 24px !important; }
+  footer > .container:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding-bottom: 40px !important;
+  }
+  footer > .container:first-child > div:first-child {
+    grid-column: auto;
+  }
+  footer > .container:first-child > div:first-child > .serif {
+    font-size: 28px !important;
+  }
 
   /* Stack 2-col grids fully */
   [style*="grid-template-columns: repeat(4, 1fr)"],
