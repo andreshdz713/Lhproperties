@@ -143,7 +143,7 @@ function Footer({ onNav }) {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, fontSize: 12, color: 'rgba(243,242,231,0.75)', marginBottom: 18 }}>
           <a href="docs/consumer-protection-notice.pdf" target="_blank" rel="noopener" style={{ borderBottom: '1px solid rgba(243,242,231,0.3)' }}>Texas Real Estate Commission Consumer Protection Notice</a>
           <span style={{ color: 'rgba(243,242,231,0.3)' }}>|</span>
-          <a href="#" style={{ borderBottom: '1px solid rgba(243,242,231,0.3)' }}>Texas Real Estate Commission Information About Brokerage Services</a>
+          <a href="docs/information-about-brokerage-services.pdf" target="_blank" rel="noopener" style={{ borderBottom: '1px solid rgba(243,242,231,0.3)' }}>Texas Real Estate Commission Information About Brokerage Services</a>
         </div>
         <div style={{ fontSize: 12, color: 'rgba(243,242,231,0.65)', marginBottom: 24, lineHeight: 1.7 }}>
           © 2026 Loan Hoang, Realtor<sup style={{ fontSize: 8 }}>®</sup> | TREC LIC #717039 | NextGen Real Estate Properties · All rights reserved · Member HAR, TAR, NAR
