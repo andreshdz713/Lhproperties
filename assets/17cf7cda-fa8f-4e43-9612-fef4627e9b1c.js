@@ -132,8 +132,8 @@ function Footer({ onNav }) {
         <div>
           <div className="eyebrow" style={{ color: 'var(--clay)', marginBottom: 18 }}>Contact</div>
           <div style={{ fontSize: 14, lineHeight: 1.8, color: 'rgba(243,242,231,0.8)' }}>
-            Loan@Hoangproperties.com<br />
-            (832) 364 3629<br />
+            <a href="mailto:loan@hoangproperties.com" style={{ color: 'inherit', borderBottom: '1px solid rgba(243,242,231,0.3)' }}>Loan@Hoangproperties.com</a><br />
+            <a href="tel:+18323643629" style={{ color: 'inherit', borderBottom: '1px solid rgba(243,242,231,0.3)' }}>(832) 364 3629</a><br />
             By appointment
           </div>
         </div>

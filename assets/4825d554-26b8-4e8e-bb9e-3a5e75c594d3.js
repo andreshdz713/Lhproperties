@@ -337,8 +337,8 @@ function Contact({ initialIntent }) {
             </div>
             <div className="eyebrow" style={{ marginBottom: 20 }}>Direct</div>
             <div style={{ fontSize: 14, lineHeight: 2, color: 'var(--ink-70)', marginBottom: 32 }}>
-              Loan@Hoangproperties.com<br/>
-              (832)-364-3629<br/>
+              <a href="mailto:loan@hoangproperties.com" style={{ color: 'inherit', borderBottom: '1px solid var(--ink-20)' }}>Loan@Hoangproperties.com</a><br/>
+              <a href="tel:+18323643629" style={{ color: 'inherit', borderBottom: '1px solid var(--ink-20)' }}>(832)-364-3629</a><br/>
               9135 Katy Fwy #211, Houston, TX, 77024<br/>
               <br/>
               <br/>
