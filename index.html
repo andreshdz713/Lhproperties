@@ -21,6 +21,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>/* cyrillic-ext */
 @font-face {
   font-family: 'Cormorant Garamond';
@@ -671,11 +672,17 @@
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: opacity 0.8s ease;
+  transform: translateY(0);
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 1.1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 #preloader.done {
   opacity: 0;
+  transform: translateY(-32px);
   pointer-events: none;
+}
+#preloader.done .pl-inner {
+  transform: scale(0.96);
+  transition: transform 1.1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 #preloader .pl-inner {
   text-align: center;
@@ -704,35 +711,38 @@
   100% { width: 220px; }
 }
 #preloader .pl-mono {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: 96px;
-  letter-spacing: 0.04em;
+  font-family: 'Pinyon Script', 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 132px;
+  letter-spacing: 0;
   color: #262625;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  gap: 22px;
+  gap: 6px;
   line-height: 1;
 }
 #preloader .pl-l,
 #preloader .pl-h {
   display: inline-block;
   opacity: 0;
-  transform: translateY(14px);
-  animation: pl-letter 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateY(18px);
+  animation: pl-letter 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 #preloader .pl-l { animation-delay: 0.35s; }
-#preloader .pl-h { animation-delay: 0.55s; }
+#preloader .pl-h { animation-delay: 0.65s; }
 #preloader .pl-amp {
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 38px;
+  font-weight: 300;
+  font-size: 44px;
   color: #CBB2A1;
   opacity: 0;
   transform: scale(0.6);
-  animation: pl-amp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards;
+  animation: pl-amp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
   position: relative;
-  top: -14px;
+  top: -38px;
+  margin: 0 4px;
 }
 @keyframes pl-letter {
   to { opacity: 1; transform: translateY(0); }
