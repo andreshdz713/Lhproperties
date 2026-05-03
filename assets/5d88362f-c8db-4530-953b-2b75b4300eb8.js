@@ -302,7 +302,7 @@ function Leasing({ onNav }) {
                 </li>
               )}
             </ul>
-            <a href="#contact" className="link-underline" onClick={(e) => {e.preventDefault();onNav('contact');}}>Inquire for owners →</a>
+            <a href="#contact" className="link-underline" onClick={(e) => {e.preventDefault();onNav('contact', 'leasing-owner');}}>Inquire for owners →</a>
           </div>
           <div style={{ padding: '64px 56px', background: 'var(--cream)' }}>
             <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--taupe)', marginBottom: 24 }}>For Tenants</div>
@@ -320,7 +320,7 @@ function Leasing({ onNav }) {
                 </li>
               )}
             </ul>
-            <a href="#contact" className="link-underline" onClick={(e) => {e.preventDefault();onNav('contact');}}>Inquire for tenants →</a>
+            <a href="#contact" className="link-underline" onClick={(e) => {e.preventDefault();onNav('contact', 'leasing-tenant');}}>Inquire for tenants →</a>
           </div>
         </div>
       </section>

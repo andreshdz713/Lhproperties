@@ -277,10 +277,14 @@ function About({ onNav }) {
   );
 }
 
-function Contact() {
-  const [intent, setIntent] = useState('buying');
+function Contact({ initialIntent }) {
+  const [intent, setIntent] = useState(initialIntent || 'buying');
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', preferredContact: 'Email, please', message: '' });
+
+  useEffect(() => {
+    if (initialIntent) setIntent(initialIntent);
+  }, [initialIntent]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -288,6 +292,8 @@ function Contact() {
       buying: 'Buying a home',
       selling: 'Selling a home',
       leasing: 'Leasing',
+      'leasing-owner': 'Leasing — As an owner',
+      'leasing-tenant': 'Leasing — As a tenant',
       investing: 'Investing',
       relocating: 'Relocating to Houston',
       other: 'Something else',
@@ -354,7 +360,8 @@ function Contact() {
               {[
                 ['buying', 'Buying a home'],
                 ['selling', 'Selling a home'],
-                ['leasing', 'Leasing'],
+                ['leasing-owner', 'Leasing — As an owner'],
+                ['leasing-tenant', 'Leasing — As a tenant'],
                 ['investing', 'Investing'],
                 ['relocating', 'Relocating to Houston'],
                 ['other', 'Something else'],

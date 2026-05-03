@@ -1844,6 +1844,7 @@ function App() {
 
   const [buyingTab, setBuyingTab] = useState('overview');
   const [sellingTab, setSellingTab] = useState('overview');
+  const [contactIntent, setContactIntent] = useState(null);
 
   useEffect(() => {
     const accentMap = { clay: '#CBB2A1', taupe: '#7E746A', ink: '#262625' };
@@ -1875,6 +1876,7 @@ function App() {
     setPage(id);
     if (id === 'buying' && sub) setBuyingTab(sub);
     if (id === 'selling' && sub) setSellingTab(sub);
+    if (id === 'contact') setContactIntent(sub || null);
   };
 
   return (
@@ -1887,7 +1889,7 @@ function App() {
         {page === 'leasing' && <Leasing onNav={onNav} />}
         {page === 'testimonials' && <Testimonials onNav={onNav} />}
         {page === 'about' && <About onNav={onNav} />}
-        {page === 'contact' && <Contact onNav={onNav} />}
+        {page === 'contact' && <Contact onNav={onNav} initialIntent={contactIntent} />}
       </main>
       <Footer onNav={onNav} />
       <TweaksPanel open={tweaksOpen} tweaks={tweaks} setTweak={setTweak} />
