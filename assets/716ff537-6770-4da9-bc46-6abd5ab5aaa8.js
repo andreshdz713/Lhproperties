@@ -178,7 +178,27 @@ function HomeValuation() {
                 <button
                   className="val-btn"
                   disabled={!data.name.trim() || !/.+@.+\..+/.test(data.email)}
-                  onClick={() => setStep(3)}
+                  onClick={() => {
+                    const subject = `Home valuation request — ${data.address || data.name}`;
+                    const body = [
+                      `Name: ${data.name}`,
+                      `Email: ${data.email}`,
+                      `Phone: ${data.phone || '(not provided)'}`,
+                      '',
+                      'Property',
+                      `Address: ${data.address}${data.unit ? ', Unit ' + data.unit : ''}`,
+                      `Beds / Baths: ${data.beds} bd · ${data.baths} ba`,
+                      `Sq Ft: ${data.sqft.toLocaleString()}`,
+                      `Year Built: ${data.yearBuilt}`,
+                      `Condition: ${data.condition}`,
+                      `Lot Size: ${data.lotSize.toLocaleString()} sq ft`,
+                      '',
+                      '— Sent from hoangproperties.com home valuation form',
+                    ].join('\n');
+                    const url = `mailto:loan@hoangproperties.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = url;
+                    setStep(3);
+                  }}
                 >
                   Request My Valuation →
                 </button>

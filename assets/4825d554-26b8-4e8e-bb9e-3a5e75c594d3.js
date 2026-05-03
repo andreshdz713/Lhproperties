@@ -17,7 +17,7 @@ function Testimonials({ onNav }) {
       'Review:',
       review.quote || '(no review text)',
       '',
-      '— Submitted via loanhoang.com testimonials page for your review and approval before posting.',
+      '— Submitted via hoangproperties.com testimonials page for your review and approval before posting.',
     ].join('\n');
     const url = `mailto:loan@hoangproperties.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = url;
@@ -275,7 +275,7 @@ function About({ onNav }) {
 function Contact() {
   const [intent, setIntent] = useState('buying');
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', preferredContact: 'Email, please', message: '' });
 
   const submit = (e) => {
     e.preventDefault();
@@ -292,17 +292,18 @@ function Contact() {
       `Name: ${form.name}`,
       `Email: ${form.email}`,
       `Phone: ${form.phone || '(not provided)'}`,
+      `Preferred contact: ${form.preferredContact}`,
       `Reason: ${intentLabel}`,
       '',
       'Message:',
       form.message || '(no message)',
       '',
-      '— Sent from loanhoang.com contact form',
+      '— Sent from hoangproperties.com contact form',
     ].join('\n');
     const url = `mailto:loan@hoangproperties.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = url;
     setSent(true);
-    setTimeout(() => { setSent(false); setForm({ name: '', email: '', phone: '', message: '' }); }, 4000);
+    setTimeout(() => { setSent(false); setForm({ name: '', email: '', phone: '', preferredContact: 'Email, please', message: '' }); }, 4000);
   };
 
   return (
@@ -385,7 +386,7 @@ function Contact() {
                 </div>
                 <div className="field">
                   <label>Preferred Contact</label>
-                  <select>
+                  <select value={form.preferredContact} onChange={(e) => setForm({...form, preferredContact: e.target.value})}>
                     <option>Email, please</option>
                     <option>A phone call</option>
                     <option>Text message</option>
