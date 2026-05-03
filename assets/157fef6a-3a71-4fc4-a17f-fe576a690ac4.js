@@ -93,11 +93,11 @@ function FeaturedListings() {
               Search the full Houston MLS directly through my HAR portal. Filter by neighborhood, price, and beds. Live listings updated in real time.
             </p>
           </div>
-          <a href="https://www.har.com/idx/mls/search?sitetype=aws&cid=717039&mlsorgid=1&allmls=n&for_sale=1" target="_blank" rel="noopener" className="link-underline">Open in HAR →</a>
+          <a href="https://www.har.com/idx/mls/listing?sitetype=aws&cid=717039&mlsorgid=1&allmls=n" target="_blank" rel="noopener" className="link-underline">Open in HAR →</a>
         </div>
         <div style={{ border: '1px solid var(--ink-20)', background: 'var(--bone)', overflow: 'hidden' }}>
           <iframe
-            src="https://www.har.com/idx/mls/search?sitetype=aws&cid=717039&mlsorgid=1&allmls=n&for_sale=1"
+            src="https://www.har.com/idx/mls/listing?sitetype=aws&cid=717039&mlsorgid=1&allmls=n"
             title="Search Loan Hoang HAR Listings"
             style={{ width: '100%', height: 1200, border: 'none', display: 'block', background: 'var(--bone)' }}
             loading="lazy"
