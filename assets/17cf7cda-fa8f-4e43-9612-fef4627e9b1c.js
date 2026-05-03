@@ -141,7 +141,7 @@ function Footer({ onNav }) {
       </div>
       <div className="container" style={{ paddingTop: 40, borderTop: '1px solid rgba(243,242,231,0.15)', marginTop: 24 }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, fontSize: 12, color: 'rgba(243,242,231,0.75)', marginBottom: 18 }}>
-          <a href="#" style={{ borderBottom: '1px solid rgba(243,242,231,0.3)' }}>Texas Real Estate Commission Consumer Protection Notice</a>
+          <a href="docs/consumer-protection-notice.pdf" target="_blank" rel="noopener" style={{ borderBottom: '1px solid rgba(243,242,231,0.3)' }}>Texas Real Estate Commission Consumer Protection Notice</a>
           <span style={{ color: 'rgba(243,242,231,0.3)' }}>|</span>
           <a href="#" style={{ borderBottom: '1px solid rgba(243,242,231,0.3)' }}>Texas Real Estate Commission Information About Brokerage Services</a>
         </div>
