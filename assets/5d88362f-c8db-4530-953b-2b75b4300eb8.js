@@ -18,27 +18,27 @@ function PageHeader({ eyebrow, title, intro }) {
 
 function EditorialListing({ num, address, price, area, beds, baths, sqft, year, description, features, variant, reverse }) {
   return (
-    <article style={{ padding: '100px 48px', borderBottom: '1px solid var(--ink-20)' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: reverse ? '1fr 1.2fr' : '1.2fr 1fr', gap: 64, alignItems: 'start' }}>
-        <div className="zoom-wrap" style={{ height: 620, order: reverse ? 2 : 1 }}>
+    <article className="editorial-listing" style={{ padding: '100px 48px', borderBottom: '1px solid var(--ink-20)' }}>
+      <div className="container editorial-listing-grid" style={{ display: 'grid', gridTemplateColumns: reverse ? '1fr 1.2fr' : '1.2fr 1fr', gap: 64, alignItems: 'start' }}>
+        <div className="zoom-wrap editorial-listing-image" style={{ height: 620, order: reverse ? 2 : 1 }}>
           <Placeholder label={`Property ${num} · Exterior`} variant={variant} />
         </div>
-        <div style={{ order: reverse ? 1 : 2, position: 'sticky', top: 120 }}>
+        <div className="editorial-listing-info" style={{ order: reverse ? 1 : 2, position: 'sticky', top: 120 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
             <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--taupe)' }}>№ {num} / Featured</div>
             <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--taupe)' }}>Active Listing</div>
           </div>
-          <h2 className="serif" style={{ fontSize: 56, lineHeight: 1.05, fontWeight: 300, letterSpacing: '-0.015em', marginBottom: 8 }}>
+          <h2 className="serif editorial-listing-address" style={{ fontSize: 56, lineHeight: 1.05, fontWeight: 300, letterSpacing: '-0.015em', marginBottom: 8 }}>
             {address}
           </h2>
           <div className="eyebrow" style={{ marginBottom: 40 }}>{area}</div>
-          <div className="serif" style={{ fontSize: 36, fontWeight: 300, marginBottom: 40, color: 'var(--ink)' }}>
+          <div className="serif editorial-listing-price" style={{ fontSize: 36, fontWeight: 300, marginBottom: 40, color: 'var(--ink)' }}>
             {price}
           </div>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: 'var(--ink-70)', marginBottom: 40 }}>
             {description}
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--ink-20)', borderBottom: '1px solid var(--ink-20)', padding: '24px 0', marginBottom: 32 }}>
+          <div className="editorial-listing-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--ink-20)', borderBottom: '1px solid var(--ink-20)', padding: '24px 0', marginBottom: 32 }}>
             {[['Beds', beds], ['Baths', baths], ['Sq Ft', sqft], ['Built', year]].map(([l, v]) =>
             <div key={l}>
                 <div className="mono" style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--taupe)', marginBottom: 6 }}>{l}</div>

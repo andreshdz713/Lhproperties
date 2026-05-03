@@ -780,7 +780,11 @@ html, body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
+
+img, video, iframe { max-width: 100%; }
 
 .serif { font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
 .mono { font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace; }
@@ -1526,6 +1530,22 @@ a { color: inherit; text-decoration: none; }
   .calc-grid-4 { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
   .calc-grid-4 > div:last-child { grid-column: span 2; justify-content: stretch !important; }
   .calc-grid-4 > div:last-child button { width: 100%; }
+  .calc-results { padding: 40px 24px !important; }
+  .calc-results-top { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .calc-result-amount { font-size: 64px !important; }
+  .calc-results-breakdown {
+    border-left: none !important;
+    border-top: 1px solid rgba(243,242,231,0.2);
+    padding-left: 0 !important;
+    padding-top: 24px;
+  }
+  .calc-results-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+    margin-top: 40px !important;
+    padding-top: 32px !important;
+  }
+  .calc-stat-value { font-size: 22px !important; }
 
   /* VALUATION */
   .val-stepper { padding: 0 8px; }
@@ -1546,6 +1566,25 @@ a { color: inherit; text-decoration: none; }
 
   /* Hero side-padding */
   [style*="padding: '120px"] { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* EDITORIAL LISTING — featured property cards */
+  .editorial-listing { padding: 56px 24px !important; }
+  .editorial-listing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .editorial-listing-image { height: 360px !important; order: 1 !important; }
+  .editorial-listing-info {
+    order: 2 !important;
+    position: static !important;
+    top: auto !important;
+  }
+  .editorial-listing-address { font-size: 36px !important; }
+  .editorial-listing-price { font-size: 28px !important; margin-bottom: 28px !important; }
+  .editorial-listing-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px 24px !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1566,13 +1605,65 @@ a { color: inherit; text-decoration: none; }
     font-size: 28px !important;
   }
 
-  /* Stack 2-col grids fully */
+  /* Stack multi-col inline grids fully */
   [style*="grid-template-columns: repeat(4, 1fr)"],
-  [style*="gridTemplateColumns: 'repeat(4, 1fr)'"] {
+  [style*="gridTemplateColumns: 'repeat(4, 1fr)'"],
+  [style*="grid-template-columns: repeat(3, 1fr)"],
+  [style*="gridTemplateColumns: 'repeat(3, 1fr)'"],
+  [style*="grid-template-columns: 1.1fr 1fr"],
+  [style*="grid-template-columns: 1.2fr 1fr"],
+  [style*="grid-template-columns: 1.4fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.2fr"],
+  [style*="grid-template-columns: 1fr 1.4fr"],
+  [style*="grid-template-columns: 1fr 2fr"],
+  [style*="grid-template-columns: 1fr 1.2fr"],
+  [style*="grid-template-columns: 2fr 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  /* Side-by-side hero/landing splits */
+  [style*="grid-template-columns: 1fr 1fr"]:not(.calc-grid-4):not(.editorial-listing-stats):not(.calc-results-stats) {
     grid-template-columns: 1fr !important;
   }
+
+  /* Hero split tall padding/height collapse */
+  [style*="padding: 160px 64px"] { padding: 80px 24px 48px !important; }
+  [style*="padding: 160px 80px"] { padding: 80px 24px 48px !important; }
+  [style*="padding: 120px 64px"] { padding: 64px 24px !important; }
+  [style*="padding: 100px 48px"] { padding: 56px 24px !important; }
+  [style*="padding: '100px 48px'"] { padding: 56px 24px !important; }
+  [style*="padding: '120px 80px'"] { padding: 64px 24px !important; }
+  [style*="padding: '160px 64px 80px'"] { padding: 64px 24px 40px !important; }
+
+  /* Constrain full-vh image panes */
+  section [style*="height: '100vh'"]:not(body):not(html),
+  section [style*="height: 100vh"]:not(body):not(html) {
+    height: auto !important;
+    max-height: 60vh;
+  }
+
+  /* HAR iframe at 1200px is too tall on mobile */
+  iframe[src*="har.com"] { height: 720px !important; }
+
+  /* Modal/dialog padding */
+  [style*="padding: '56px 56px"] { padding: 32px 22px !important; }
+  [style*="padding: '72px 64px'"] { padding: 40px 24px !important; }
+  [style*="padding: '96px 48px"] { padding: 56px 24px !important; }
+
+  /* Big serif headings shrink (clamp values that have a 56-80 minimum) */
+  [style*="font-size: 56"] { font-size: 36px !important; }
+  [style*="fontSize: 56"] { font-size: 36px !important; }
+  [style*="font-size: 40"] { font-size: 28px !important; }
+
+  /* Marquee gap reduce */
+  [style*="gap: 80"][style*="grid"] { gap: 32px !important; }
+  [style*="gap: 96"][style*="grid"] { gap: 32px !important; }
+  [style*="gap: 64"][style*="grid"] { gap: 28px !important; }
   .calc-grid-4 { grid-template-columns: 1fr !important; }
   .calc-grid-4 > div:last-child { grid-column: span 1; }
+  .calc-results { padding: 32px 18px !important; }
+  .calc-result-amount { font-size: 52px !important; }
+  .calc-results-stats { grid-template-columns: 1fr !important; gap: 20px !important; }
   .val-grid { grid-template-columns: 1fr; }
 
   /* Tighten hero typography */

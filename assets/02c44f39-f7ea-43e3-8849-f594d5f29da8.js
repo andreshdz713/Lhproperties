@@ -70,18 +70,18 @@ function MortgageCalculator() {
       {calculated && (
         <section className="section" style={{ paddingTop: 40, paddingBottom: 120 }}>
           <div className="container">
-            <div style={{ background: 'var(--ink)', color: 'var(--bone)', padding: '72px 64px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 80, alignItems: 'center' }}>
+            <div className="calc-results" style={{ background: 'var(--ink)', color: 'var(--bone)', padding: '72px 64px' }}>
+              <div className="calc-results-top" style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 80, alignItems: 'center' }}>
                 <div>
                   <div className="mono" style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--clay)', marginBottom: 16 }}>Estimated Monthly Payment</div>
-                  <div className="serif" style={{ fontSize: 'clamp(80px, 9vw, 128px)', lineHeight: 0.95, fontWeight: 300, letterSpacing: '-0.02em', marginBottom: 8 }}>
+                  <div className="serif calc-result-amount" style={{ fontSize: 'clamp(80px, 9vw, 128px)', lineHeight: 0.95, fontWeight: 300, letterSpacing: '-0.02em', marginBottom: 8 }}>
                     {fmt(total)}
                   </div>
                   <div className="mono" style={{ fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(243,242,231,0.5)' }}>
                     / month · all in
                   </div>
                 </div>
-                <div style={{ borderLeft: '1px solid rgba(243,242,231,0.2)', paddingLeft: 48 }}>
+                <div className="calc-results-breakdown" style={{ borderLeft: '1px solid rgba(243,242,231,0.2)', paddingLeft: 48 }}>
                   {[
                     ['Principal and Interest', fmt(pi)],
                     ['Property Tax', fmt(taxM)],
@@ -95,7 +95,7 @@ function MortgageCalculator() {
                   ))}
                 </div>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 40, marginTop: 64, paddingTop: 48, borderTop: '1px solid rgba(243,242,231,0.2)' }}>
+              <div className="calc-results-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 40, marginTop: 64, paddingTop: 48, borderTop: '1px solid rgba(243,242,231,0.2)' }}>
                 {[
                   ['Loan Amount', fmt(loan)],
                   ['Down Payment', fmt(down) + ' · ' + downPct.toFixed(1) + '%'],
@@ -104,7 +104,7 @@ function MortgageCalculator() {
                 ].map(([l, v]) => (
                   <div key={l}>
                     <div className="mono" style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(243,242,231,0.5)', marginBottom: 10 }}>{l}</div>
-                    <div className="serif" style={{ fontSize: 30, fontWeight: 400, letterSpacing: '-0.01em' }}>{v}</div>
+                    <div className="serif calc-stat-value" style={{ fontSize: 30, fontWeight: 400, letterSpacing: '-0.01em' }}>{v}</div>
                   </div>
                 ))}
               </div>
