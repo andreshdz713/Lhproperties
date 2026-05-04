@@ -8,14 +8,14 @@ function HeroQuiet({ onNav }) {
           <video
             className="hero-quiet-video"
             src="assets/houston-skyline.mp4"
-            poster={window.__resources.houstonSkyline}
+            poster={window.__resources.houstonMobile}
             autoPlay
             muted
             loop
             playsInline
             preload="metadata"
           />
-          <img className="hero-quiet-still" src={window.__resources.houstonSkyline} alt="" />
+          <img className="hero-quiet-still" src={window.__resources.houstonMobile} alt="" />
           <div className="hero-quiet-fade" />
         </div>
         <div className="hero-quiet-banner-inner">

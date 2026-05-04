@@ -61,14 +61,14 @@ function Community({ onNav }) {
           <video
             className="community-hero-video"
             src="assets/houston-skyline.mp4"
-            poster={window.__resources.houstonSkyline}
+            poster={window.__resources.houstonMobile}
             autoPlay
             muted
             loop
             playsInline
             preload="metadata"
           />
-          <img className="community-hero-still" src={window.__resources.houstonSkyline} alt="" />
+          <img className="community-hero-still" src={window.__resources.houstonMobile} alt="" />
           <div className="community-hero-fade" />
         </div>
         <div className="community-hero-inner">
