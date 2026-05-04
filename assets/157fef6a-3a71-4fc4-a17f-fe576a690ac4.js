@@ -3,30 +3,35 @@
 function HeroQuiet({ onNav }) {
   return (
     <section className="hero-quiet">
-      <div className="hero-quiet-banner" aria-hidden="true">
-        <video
-          className="hero-quiet-video"
-          src="assets/houston-skyline.mp4"
-          poster={window.__resources.houstonSkyline}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-        <img className="hero-quiet-still" src={window.__resources.houstonSkyline} alt="" />
-        <div className="hero-quiet-tag mono">Houston · Golden Hour</div>
+      <div className="hero-quiet-banner">
+        <div className="hero-quiet-media" aria-hidden="true">
+          <video
+            className="hero-quiet-video"
+            src="assets/houston-skyline.mp4"
+            poster={window.__resources.houstonSkyline}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+          <img className="hero-quiet-still" src={window.__resources.houstonSkyline} alt="" />
+          <div className="hero-quiet-fade" />
+        </div>
+        <div className="hero-quiet-banner-inner">
+          <div className="mono hero-quiet-tag">Houston · Golden Hour</div>
+          <h1 className="serif fade-up d1 hero-quiet-headline">
+            A quiet,<br/>
+            <em>considered</em> approach<br/>
+            to finding home.
+          </h1>
+        </div>
       </div>
       <div className="hero-quiet-content">
         <div className="container">
-          <div className="eyebrow fade-up" style={{ marginBottom: 36 }}>
+          <div className="eyebrow fade-up" style={{ marginBottom: 28 }}>
             Houston · Est. Real Estate Practice · 2018
           </div>
-          <h1 className="serif fade-up d1" style={{ fontSize: 'clamp(56px, 8vw, 128px)', lineHeight: 1.0, letterSpacing: '-0.02em', marginBottom: 36, fontWeight: 300 }}>
-            A quiet,<br/>
-            <em style={{ color: 'var(--clay)' }}>considered</em> approach<br/>
-            to finding home.
-          </h1>
           <div className="fade-up d3">
             <p style={{ maxWidth: 560, fontSize: 16, lineHeight: 1.7, color: 'var(--ink-70)', marginBottom: 36 }}>
               Loan Hoang is a Houston based realtor guiding first time buyers, investors, and relocating families through every milestone of the home journey, with patience, clarity, and care.
