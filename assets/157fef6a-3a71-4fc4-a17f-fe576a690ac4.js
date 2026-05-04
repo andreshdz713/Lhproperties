@@ -1,6 +1,6 @@
 // Home page with 3 hero variations toggleable via Tweaks
 
-function HeroQuiet() {
+function HeroQuiet({ onNav }) {
   return (
     <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '140px 48px 80px' }}>
       <div className="container">
@@ -12,11 +12,27 @@ function HeroQuiet() {
           <em style={{ color: 'var(--clay)' }}>considered</em> approach<br/>
           to finding home.
         </h1>
-        <div className="fade-up d3" style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'end', marginTop: 48 }}>
-          <p style={{ maxWidth: 520, fontSize: 16, lineHeight: 1.7, color: 'var(--ink-70)' }}>
+        <div className="fade-up d3" style={{ marginTop: 48 }}>
+          <p style={{ maxWidth: 520, fontSize: 16, lineHeight: 1.7, color: 'var(--ink-70)', marginBottom: 32 }}>
             Loan Hoang is a Houston based realtor guiding first time buyers, investors, and relocating families through every milestone of the home journey, with patience, clarity, and care.
           </p>
-          <a href="#contact" className="link-underline">Begin with Loan →</a>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <a
+              href="https://www.har.com/idx/mls/listing?sitetype=aws&cid=717039&mlsorgid=1&allmls=n"
+              target="_blank"
+              rel="noopener"
+              className="btn btn-ink"
+            >
+              Featured Properties <span className="btn-arrow">→</span>
+            </a>
+            <a
+              href="#about"
+              onClick={(e) => { e.preventDefault(); onNav && onNav('about'); }}
+              className="btn"
+            >
+              Meet Loan
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -189,7 +205,7 @@ function StatsStrip() {
 function Home({ heroVariant, onNav }) {
   return (
     <div>
-      {heroVariant === 'quiet' && <HeroQuiet />}
+      {heroVariant === 'quiet' && <HeroQuiet onNav={onNav} />}
       {heroVariant === 'editorial' && <HeroEditorial />}
       {heroVariant === 'split' && <HeroSplit />}
       <Marquee items={['River Oaks', 'The Heights', 'Memorial', 'Montrose', 'West University', 'Bellaire', 'Midtown', 'Sugar Land', 'The Woodlands', 'Katy']} />
