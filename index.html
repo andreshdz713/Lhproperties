@@ -751,16 +751,27 @@
 @keyframes pl-amp {
   to { opacity: 1; transform: scale(1); }
 }
+#preloader .pl-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  color: #262625;
+  margin-top: 6px;
+  opacity: 0;
+  animation: pl-fade-in 1s ease 0.95s forwards;
+}
 #preloader .pl-name {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 11px;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: #262625;
-  margin-top: 4px;
+  color: #7E746A;
+  margin-top: 14px;
   opacity: 0;
-  animation: pl-fade-in 0.9s ease 0.95s forwards;
+  animation: pl-fade-in 0.9s ease 1.15s forwards;
 }
 #preloader .pl-sub {
   font-family: 'JetBrains Mono', monospace;
@@ -769,9 +780,9 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: #7E746A;
-  margin-top: 14px;
+  margin-top: 8px;
   opacity: 0;
-  animation: pl-fade-in 0.9s ease 1.15s forwards;
+  animation: pl-fade-in 0.9s ease 1.3s forwards;
 }
 @keyframes pl-fade-in {
   to { opacity: 1; }
@@ -1751,6 +1762,7 @@ a { color: inherit; text-decoration: none; }
       <span class="pl-h">H</span>
     </div>
     <div class="pl-line pl-line-bot"></div>
+    <div class="pl-brand">Hoang Properties</div>
     <div class="pl-name">Loan Hoang</div>
     <div class="pl-sub">Houston Realtor</div>
   </div>
