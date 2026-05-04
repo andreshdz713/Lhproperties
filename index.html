@@ -1035,12 +1035,19 @@ a { color: inherit; text-decoration: none; }
 .btn-arrow { display: inline-block; transition: transform 0.3s ease; }
 .btn:hover .btn-arrow { transform: translateX(4px); }
 
-/* HERO QUIET — Houston aerial video background */
-.hero-quiet-media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+/* HERO QUIET — Houston aerial banner over editorial content */
+.hero-quiet {
+  display: flex;
+  flex-direction: column;
+}
+.hero-quiet-banner {
+  position: relative;
+  width: 100%;
+  height: 56vh;
+  min-height: 360px;
+  max-height: 620px;
+  overflow: hidden;
+  background: var(--ink);
 }
 .hero-quiet-video,
 .hero-quiet-still {
@@ -1049,7 +1056,8 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 38%;
+  display: block;
 }
 .hero-quiet-still {
   display: none;
@@ -1059,24 +1067,28 @@ a { color: inherit; text-decoration: none; }
   from { transform: scale(1) translateZ(0); }
   to   { transform: scale(1.08) translate(-1%, -1%); }
 }
-.hero-quiet-scrim {
+.hero-quiet-tag {
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(243, 242, 231, 0) 0%,
-      rgba(243, 242, 231, 0) 30%,
-      rgba(243, 242, 231, 0.35) 55%,
-      rgba(243, 242, 231, 0.7) 85%,
-      rgba(243, 242, 231, 0.85) 100%);
+  bottom: 22px;
+  left: 24px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(243, 242, 231, 0.85);
+  padding: 8px 14px;
+  background: rgba(38, 38, 37, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
-.hero-quiet h1,
-.hero-quiet .eyebrow {
-  text-shadow: 0 1px 18px rgba(243, 242, 231, 0.55);
+.hero-quiet-content {
+  padding: 96px 48px 80px;
+  background: var(--bone);
 }
 @media (max-width: 1024px) {
   .hero-quiet-video { display: none; }
   .hero-quiet-still { display: block; }
+  .hero-quiet-banner { height: 44vh; min-height: 280px; max-height: 460px; }
+  .hero-quiet-content { padding: 56px 24px 56px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-quiet-still { animation: none; }

@@ -2,8 +2,8 @@
 
 function HeroQuiet({ onNav }) {
   return (
-    <section className="hero-quiet" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '140px 48px 80px', position: 'relative', overflow: 'hidden' }}>
-      <div className="hero-quiet-media" aria-hidden="true">
+    <section className="hero-quiet">
+      <div className="hero-quiet-banner" aria-hidden="true">
         <video
           className="hero-quiet-video"
           src="assets/houston-skyline.mp4"
@@ -15,37 +15,39 @@ function HeroQuiet({ onNav }) {
           preload="metadata"
         />
         <img className="hero-quiet-still" src={window.__resources.houstonSkyline} alt="" />
-        <div className="hero-quiet-scrim" />
+        <div className="hero-quiet-tag mono">Houston · Golden Hour</div>
       </div>
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="eyebrow fade-up" style={{ marginBottom: 48 }}>
-          Houston · Est. Real Estate Practice · 2018
-        </div>
-        <h1 className="serif fade-up d1" style={{ fontSize: 'clamp(72px, 11vw, 176px)', lineHeight: 0.95, letterSpacing: '-0.02em', marginBottom: 40, fontWeight: 300 }}>
-          A quiet,<br/>
-          <em style={{ color: 'var(--clay)' }}>considered</em> approach<br/>
-          to finding home.
-        </h1>
-        <div className="fade-up d3" style={{ marginTop: 48 }}>
-          <p style={{ maxWidth: 520, fontSize: 16, lineHeight: 1.7, color: 'var(--ink-70)', marginBottom: 32 }}>
-            Loan Hoang is a Houston based realtor guiding first time buyers, investors, and relocating families through every milestone of the home journey, with patience, clarity, and care.
-          </p>
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <a
-              href="https://www.har.com/idx/mls/listing?sitetype=aws&cid=717039&mlsorgid=1&allmls=n"
-              target="_blank"
-              rel="noopener"
-              className="btn btn-ink"
-            >
-              Featured Properties <span className="btn-arrow">→</span>
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => { e.preventDefault(); onNav && onNav('about'); }}
-              className="btn"
-            >
-              Meet Loan
-            </a>
+      <div className="hero-quiet-content">
+        <div className="container">
+          <div className="eyebrow fade-up" style={{ marginBottom: 36 }}>
+            Houston · Est. Real Estate Practice · 2018
+          </div>
+          <h1 className="serif fade-up d1" style={{ fontSize: 'clamp(56px, 8vw, 128px)', lineHeight: 1.0, letterSpacing: '-0.02em', marginBottom: 36, fontWeight: 300 }}>
+            A quiet,<br/>
+            <em style={{ color: 'var(--clay)' }}>considered</em> approach<br/>
+            to finding home.
+          </h1>
+          <div className="fade-up d3">
+            <p style={{ maxWidth: 560, fontSize: 16, lineHeight: 1.7, color: 'var(--ink-70)', marginBottom: 36 }}>
+              Loan Hoang is a Houston based realtor guiding first time buyers, investors, and relocating families through every milestone of the home journey, with patience, clarity, and care.
+            </p>
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+              <a
+                href="https://www.har.com/idx/mls/listing?sitetype=aws&cid=717039&mlsorgid=1&allmls=n"
+                target="_blank"
+                rel="noopener"
+                className="btn btn-ink"
+              >
+                Featured Properties <span className="btn-arrow">→</span>
+              </a>
+              <a
+                href="#about"
+                onClick={(e) => { e.preventDefault(); onNav && onNav('about'); }}
+                className="btn"
+              >
+                Meet Loan
+              </a>
+            </div>
           </div>
         </div>
       </div>
