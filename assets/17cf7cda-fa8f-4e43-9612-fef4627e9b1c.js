@@ -21,10 +21,10 @@ function Nav({ current, onNav }) {
   ['buying', 'Buying'],
   ['selling', 'Selling'],
   ['leasing', 'Leasing'],
+  ['community', 'Community'],
   ['testimonials', 'Testimonials'],
   ['about', 'About Me'],
-  ['contact', 'Contact'],
-  ['community', 'Community']];
+  ['contact', 'Contact']];
 
 
   const closeMobile = () => setMobileOpen(false);

@@ -4,53 +4,53 @@ function Community({ onNav }) {
   const neighborhoods = [
     {
       name: 'River Oaks',
-      tagline: 'Old-money grace and live oak canopies.',
-      body: "Houston's most established address. Boulevards lined with century-old oaks, gracious gardens, and the city's most storied homes. River Oaks Country Club anchors a quiet, deeply rooted community.",
+      tagline: 'Old money grace and live oak canopies.',
+      body: "Houston's most established address. Boulevards lined with century old oaks, gracious gardens, and the city's most storied homes. River Oaks Country Club anchors a quiet, deeply rooted community.",
       tag: 'Established · Walkable',
-      image: window.__resources.editorialInterior,
+      image: 'assets/nbhd-river-oaks.jpg',
     },
     {
       name: 'The Heights',
       tagline: 'Historic bungalows, modern energy.',
-      body: 'Tree-lined streets of restored Victorian and craftsman homes meet a thriving food and shop scene. Walking distance to White Oak Bayou trails, breweries, and Houston\'s best independent boutiques.',
+      body: 'Restored Victorian and craftsman homes line streets shaded by old elms. Walking distance to White Oak Bayou trails, breweries on White Oak Drive, and the independent boutiques and food along 19th Street.',
       tag: 'Walkable · Foodie',
-      image: window.__resources.slowTravel,
+      image: 'assets/nbhd-heights.jpg',
     },
     {
       name: 'Memorial',
       tagline: 'Family, parks, and excellent schools.',
-      body: 'Sprawling, leafy, and centered on Memorial Park — one of the largest urban parks in the country. Top-rated SBISD schools, golf, hike-and-bike trails, and quick access to the Energy Corridor.',
+      body: 'Sprawling and leafy, anchored by Memorial Park, one of the largest urban parks in the country. Top rated SBISD schools, golf, miles of hike and bike trails, and quick access to the Energy Corridor.',
       tag: 'Family · Green Space',
-      image: window.__resources.morningWalks,
+      image: 'assets/nbhd-memorial.jpg',
     },
     {
       name: 'Montrose',
       tagline: 'Eclectic, artistic, unmistakably Houston.',
-      body: 'Galleries, cafés, and the Menil Collection. A creative neighborhood with deep cultural roots — diverse, walkable, and wonderfully alive on a Saturday afternoon.',
+      body: "Home to the Menil Collection, the Rothko Chapel, and a long list of galleries and cafés. A creative neighborhood with deep cultural roots, diverse, walkable, and wonderfully alive on a Saturday afternoon.",
       tag: 'Arts · Walkable',
-      image: window.__resources.matchaCookies,
+      image: 'assets/nbhd-montrose.jpg',
     },
     {
       name: 'West University',
       tagline: 'A village within the city.',
-      body: 'Tree-lined streets, top-tier schools, and a tight-knit community. Minutes to the Texas Medical Center, Rice Village shopping, and Hermann Park. One of Houston\'s most consistently sought-after addresses.',
+      body: "Quiet streets and a tight knit community of two miles squared, with top tier schools and Rice Village shopping at its edge. Minutes to the Texas Medical Center and Hermann Park. One of Houston's most consistently sought after addresses.",
       tag: 'Schools · Family',
-      image: window.__resources.camoPj,
+      image: 'assets/nbhd-west-u.jpg',
     },
     {
       name: 'The Woodlands',
-      tagline: 'Master-planned, surrounded by forest.',
-      body: 'A 30-minute drive north, set among 28,000 acres of preserved woodland. Walkable Town Center, top schools, lakes, and trails — a natural choice for families wanting space and amenities together.',
+      tagline: 'Master planned, surrounded by forest.',
+      body: 'A half hour drive north of downtown, set inside 28,000 acres of preserved Piney Woods. A walkable Town Center, top schools, Lake Woodlands, and miles of pathways. A natural choice for families wanting both space and amenities.',
       tag: 'Suburban · Nature',
-      image: window.__resources.houstonSkyline,
+      image: 'assets/nbhd-woodlands.jpg',
     },
   ];
 
   const facts = [
     ['4th', 'Largest city in the U.S.'],
-    ['90+', 'Languages spoken across Greater Houston'],
-    ['38', 'Distinct neighborhoods inside the Loop'],
-    ['145', 'Parks managed by the city'],
+    ['145+', 'Languages spoken across Greater Houston'],
+    ['88', 'Official Super Neighborhoods'],
+    ['380+', 'Parks managed by the city'],
   ];
 
   return (
@@ -79,7 +79,7 @@ function Community({ onNav }) {
             who shape them.
           </h1>
           <p className="community-hero-sub">
-            Six years of guiding clients through Houston has taught me that no two neighborhoods feel alike. The right home is rarely just about square footage — it&apos;s about the streets, the corner café, the rhythm of the place.
+            Six years of guiding clients through Houston has taught me that no two neighborhoods feel alike. The right home is rarely just about square footage. It is about the streets, the corner café, the rhythm of the place.
           </p>
         </div>
       </section>
@@ -95,10 +95,10 @@ function Community({ onNav }) {
           </div>
           <div>
             <p style={{ fontSize: 17, lineHeight: 1.85, color: 'var(--ink-70)', marginBottom: 28 }}>
-              Houston is a city of contradictions. World-class museums sit beside taquerias on Telephone Road. Energy executives share commutes with rocket engineers. The food is Vietnamese, Cajun, Tex-Mex, and Lebanese, sometimes on the same block.
+              Houston is a city of contradictions. Renowned museums sit beside taquerias on Telephone Road. Energy executives share commutes with rocket engineers. The food is Vietnamese, Cajun, Tex Mex, and Lebanese, sometimes all on the same block.
             </p>
             <p style={{ fontSize: 17, lineHeight: 1.85, color: 'var(--ink-70)', marginBottom: 28 }}>
-              It&apos;s also one of the most quietly opportunity-rich places in the country — no state income tax, growing job market, and a housing landscape that still rewards patience and a good guide.
+              It is also one of the most quietly opportunity rich places in the country. No state income tax, a growing job market, and a housing landscape that still rewards patience and a good guide.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 28, marginTop: 40, paddingTop: 32, borderTop: '1px solid var(--ink-20)' }}>
               {facts.map(([n, l]) => (
@@ -160,8 +160,8 @@ function Community({ onNav }) {
             </p>
           </div>
           <div className="community-strip-image">
-            <img src={window.__resources.matchaCookies} alt="A taste of Houston" />
-            <div className="community-strip-tag mono">Saturday Mornings · Houston</div>
+            <img src="assets/nbhd-memorial.jpg" alt="An afternoon in the park" />
+            <div className="community-strip-tag mono">Memorial Park · Saturday Afternoons</div>
           </div>
         </div>
       </section>
@@ -174,7 +174,7 @@ function Community({ onNav }) {
             Tell me what you&apos;re after, and I&apos;ll point you toward the <em style={{ color: 'var(--clay)' }}>right neighborhood</em>.
           </h2>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: 'rgba(243,242,231,0.8)', maxWidth: 620, margin: '0 auto 40px' }}>
-            Quiet streets and big trees? Walkable and lively? Top schools? Easy commute to the Med Center or downtown? I&apos;ll help you weigh the trade-offs and find the place that actually fits.
+            Quiet streets and big trees? Walkable and lively? Top schools? Easy commute to the Med Center or downtown? I&apos;ll help you weigh the tradeoffs and find the place that actually fits.
           </p>
           <a
             href="#contact"
