@@ -2,8 +2,22 @@
 
 function HeroQuiet({ onNav }) {
   return (
-    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '140px 48px 80px' }}>
-      <div className="container">
+    <section className="hero-quiet" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '140px 48px 80px', position: 'relative', overflow: 'hidden' }}>
+      <div className="hero-quiet-media" aria-hidden="true">
+        <video
+          className="hero-quiet-video"
+          src="assets/houston-skyline.mp4"
+          poster={window.__resources.houstonSkyline}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+        <img className="hero-quiet-still" src={window.__resources.houstonSkyline} alt="" />
+        <div className="hero-quiet-scrim" />
+      </div>
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="eyebrow fade-up" style={{ marginBottom: 48 }}>
           Houston · Est. Real Estate Practice · 2018
         </div>
