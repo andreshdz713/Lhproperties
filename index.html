@@ -786,14 +786,26 @@
   animation: pl-fade-in 0.9s ease 1.3s forwards;
 }
 @media (max-width: 640px) {
-  #preloader .pl-inner { padding: 0 24px; }
-  #preloader .pl-line-top { margin-bottom: 28px; }
-  #preloader .pl-line-bot { margin-top: 28px; }
-  #preloader .pl-mono { font-size: 96px; gap: 4px; }
-  #preloader .pl-amp { font-size: 32px; top: -26px; margin: 0 2px; }
-  #preloader .pl-brand { font-size: 22px; margin-top: 4px; }
-  #preloader .pl-name { font-size: 10px; letter-spacing: 0.32em; margin-top: 12px; }
-  #preloader .pl-sub { font-size: 9px; letter-spacing: 0.28em; margin-top: 6px; }
+  #preloader .pl-inner { padding: 0 20px; max-width: 100vw; }
+  #preloader .pl-line-top { margin-bottom: 24px; }
+  #preloader .pl-line-bot { margin-top: 24px; }
+  #preloader .pl-mono { font-size: 84px; gap: 2px; }
+  #preloader .pl-amp { font-size: 28px; top: -22px; margin: 0 2px; }
+  #preloader .pl-brand { font-size: 20px; margin-top: 4px; }
+  #preloader .pl-name { font-size: 10px; letter-spacing: 0.3em; margin-top: 12px; }
+  #preloader .pl-sub { font-size: 9px; letter-spacing: 0.26em; margin-top: 6px; }
+}
+@media (max-width: 380px) {
+  #preloader .pl-mono { font-size: 68px; }
+  #preloader .pl-amp { font-size: 22px; top: -16px; }
+  #preloader .pl-brand { font-size: 18px; }
+}
+@keyframes pl-line-grow-xs {
+  0% { width: 0; }
+  100% { width: 130px; }
+}
+@media (max-width: 380px) {
+  #preloader .pl-line { animation-name: pl-line-grow-xs; }
 }
 @keyframes pl-line-grow-mobile {
   0% { width: 0; }
@@ -852,7 +864,7 @@ a { color: inherit; text-decoration: none; }
 /* NAV */
 .nav {
   position: fixed; top: 0; left: 0; right: 0;
-  z-index: 50;
+  z-index: 9999;
   padding: 28px 48px;
   display: flex; align-items: center; justify-content: space-between;
   transition: padding 0.35s ease, background 0.35s ease, border-color 0.35s ease;
@@ -1223,7 +1235,7 @@ a { color: inherit; text-decoration: none; }
 .page-transition {
   position: fixed;
   inset: 0;
-  z-index: 9998;
+  z-index: 9000;
   background: #F3F2E7;
   display: flex;
   align-items: center;
@@ -2231,6 +2243,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem('loan_page', page);
     window.scrollTo({ top: 0, behavior: 'instant' });
+    document.body.style.overflow = '';
     if (isFirstNav.current) { isFirstNav.current = false; return; }
     setTransitioning(true);
     const t = setTimeout(() => setTransitioning(false), 1000);
