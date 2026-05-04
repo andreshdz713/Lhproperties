@@ -1032,8 +1032,229 @@ a { color: inherit; text-decoration: none; }
 .btn:hover { background: var(--ink); color: var(--bone); }
 .btn-ink { background: var(--ink); color: var(--bone); }
 .btn-ink:hover { background: transparent; color: var(--ink); }
+.btn-bone { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.btn-bone:hover { background: transparent; color: var(--bone); }
 .btn-arrow { display: inline-block; transition: transform 0.3s ease; }
 .btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* COMMUNITY PAGE */
+.community-hero {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 540px;
+  max-height: 820px;
+  overflow: hidden;
+  background: var(--ink);
+}
+.community-hero-media { position: absolute; inset: 0; }
+.community-hero-video,
+.community-hero-still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+}
+.community-hero-still {
+  display: none;
+  animation: hero-quiet-kenburns 22s ease-in-out infinite alternate;
+}
+.community-hero-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(38, 38, 37, 0.35) 0%,
+      rgba(38, 38, 37, 0) 35%,
+      rgba(38, 38, 37, 0.55) 75%,
+      rgba(38, 38, 37, 0.78) 100%);
+}
+.community-hero-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 56px 64px 64px;
+  max-width: 1080px;
+}
+.community-hero-tag {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 242, 231, 0.78);
+  margin-bottom: 28px;
+}
+.community-hero-headline {
+  font-size: clamp(40px, 5.4vw, 88px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+  color: #F3F2E7;
+  margin: 0 0 24px;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  max-width: 18ch;
+}
+.community-hero-headline em { color: #E8C9B3; font-style: italic; }
+.community-hero-sub {
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(243, 242, 231, 0.82);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 1024px) {
+  .community-hero-video { display: none; }
+  .community-hero-still { display: block; }
+  .community-hero { height: 70vh; min-height: 460px; max-height: 680px; }
+  .community-hero-inner { padding: 32px 24px 36px; }
+  .community-hero-tag { margin-bottom: 18px; }
+  .community-hero-headline { margin-bottom: 18px; }
+  .community-hero-sub { font-size: 14px; }
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 32px;
+}
+.community-card {
+  background: var(--bone);
+  border: 1px solid var(--ink-10);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.community-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(38, 38, 37, 0.08);
+}
+.community-card-image {
+  height: 220px;
+  overflow: hidden;
+}
+.community-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.9s cubic-bezier(.22,.61,.36,1);
+}
+.community-card:hover .community-card-image img { transform: scale(1.05); }
+.community-card-body { padding: 28px 26px 32px; }
+.community-card-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--clay);
+  line-height: 1.4;
+}
+.community-strip-image {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+}
+.community-strip-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.community-strip-tag {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone);
+  padding: 8px 14px;
+  background: rgba(38, 38, 37, 0.55);
+}
+
+@media (max-width: 1024px) {
+  .community-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .community-card-image { height: 200px; }
+  .community-strip-image { height: 360px; }
+}
+@media (max-width: 640px) {
+  .community-grid { grid-template-columns: 1fr; gap: 22px; }
+  .community-card-image { height: 240px; }
+}
+
+/* PAGE TRANSITION — 1s L·H wipe between routes */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: #F3F2E7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0s linear 0.28s;
+}
+.page-transition.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.22s ease, visibility 0s;
+}
+.page-transition-inner { text-align: center; transform: translateY(8px); opacity: 0; transition: transform 0.45s ease, opacity 0.45s ease; }
+.page-transition.active .page-transition-inner { transform: translateY(0); opacity: 1; }
+.page-transition-mark {
+  font-family: 'Pinyon Script', serif;
+  font-size: 84px;
+  color: #262625;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+.page-transition-mark .pl-amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: #CBB2A1;
+  position: relative;
+  top: -22px;
+  margin: 0 2px;
+}
+.page-transition-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  color: #7E746A;
+  margin-top: 6px;
+}
+@media (max-width: 640px) {
+  .page-transition-mark { font-size: 64px; }
+  .page-transition-mark .pl-amp { font-size: 22px; top: -16px; }
+  .page-transition-brand { font-size: 16px; }
+}
+
+/* NAV — keep brand legible while hero video sky is bright */
+.nav.nav-on-hero:not(.shrunk) {
+  background: linear-gradient(to bottom, rgba(38,38,37,0.42) 0%, rgba(38,38,37,0.18) 70%, transparent 100%);
+}
+.nav.nav-on-hero:not(.shrunk) .nav-brand,
+.nav.nav-on-hero:not(.shrunk) .nav-brand .initials,
+.nav.nav-on-hero:not(.shrunk) .nav-links a,
+.nav.nav-on-hero:not(.shrunk) .nav-links > a,
+.nav.nav-on-hero:not(.shrunk) .nav-burger span {
+  color: #F3F2E7;
+}
+.nav.nav-on-hero:not(.shrunk) .nav-burger span { background: #F3F2E7; }
+.nav.nav-on-hero:not(.shrunk) .nav-links a::after { background: #F3F2E7; }
 
 /* HERO QUIET — Houston aerial banner with overlaid headline */
 .hero-quiet {
@@ -1917,9 +2138,10 @@ a { color: inherit; text-decoration: none; }
 <script type="text/babel" src="assets/02c44f39-f7ea-43e3-8849-f594d5f29da8.js"></script>
 <script type="text/babel" src="assets/716ff537-6770-4da9-bc46-6abd5ab5aaa8.js"></script>
 <script type="text/babel" src="assets/4825d554-26b8-4e8e-bb9e-3a5e75c594d3.js"></script>
+<script type="text/babel" src="assets/community.js"></script>
 
 <script type="text/babel">
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroVariant": "quiet",
@@ -1955,14 +2177,35 @@ function TweaksPanel({ open, tweaks, setTweak }) {
   );
 }
 
+function PageTransition({ active }) {
+  return (
+    <div className={`page-transition ${active ? 'active' : ''}`} aria-hidden="true">
+      <div className="page-transition-inner">
+        <div className="page-transition-mark">
+          <span className="pl-l">L</span>
+          <span className="pl-amp">·</span>
+          <span className="pl-h">H</span>
+        </div>
+        <div className="page-transition-brand">Hoang Properties</div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [page, setPage] = useState(() => localStorage.getItem('loan_page') || 'home');
   const [tweaksOpen, setTweaksOpen] = useState(false);
   const [tweaks, setTweaks] = useState(TWEAK_DEFAULTS);
+  const [transitioning, setTransitioning] = useState(false);
+  const isFirstNav = useRef(true);
 
   useEffect(() => {
     localStorage.setItem('loan_page', page);
     window.scrollTo({ top: 0, behavior: 'instant' });
+    if (isFirstNav.current) { isFirstNav.current = false; return; }
+    setTransitioning(true);
+    const t = setTimeout(() => setTransitioning(false), 1000);
+    return () => clearTimeout(t);
   }, [page]);
 
   const [buyingTab, setBuyingTab] = useState('overview');
@@ -2013,9 +2256,11 @@ function App() {
         {page === 'testimonials' && <Testimonials onNav={onNav} />}
         {page === 'about' && <About onNav={onNav} />}
         {page === 'contact' && <Contact onNav={onNav} initialIntent={contactIntent} />}
+        {page === 'community' && <Community onNav={onNav} />}
       </main>
       <Footer onNav={onNav} />
       <TweaksPanel open={tweaksOpen} tweaks={tweaks} setTweak={setTweak} />
+      <PageTransition active={transitioning} />
     </>
   );
 }

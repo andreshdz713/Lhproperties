@@ -23,7 +23,8 @@ function Nav({ current, onNav }) {
   ['leasing', 'Leasing'],
   ['testimonials', 'Testimonials'],
   ['about', 'About Me'],
-  ['contact', 'Contact']];
+  ['contact', 'Contact'],
+  ['community', 'Community']];
 
 
   const closeMobile = () => setMobileOpen(false);
@@ -70,7 +71,7 @@ function Nav({ current, onNav }) {
 
 
   return (
-    <nav className={`nav ${shrunk ? 'shrunk' : ''}`}>
+    <nav className={`nav ${shrunk ? 'shrunk' : ''} ${(current === 'home' || current === 'community') ? 'nav-on-hero' : ''}`}>
       <a href="#home" onClick={(e) => {e.preventDefault();navTo('home');}} className="nav-brand">
         Loan Hoang <span className="initials" style={{ color: 'var(--taupe)', marginLeft: 8, fontSize: '0.75em', letterSpacing: '0.1em', fontFamily: 'JetBrains Mono, monospace', fontStyle: 'normal', textTransform: 'uppercase' }}>Texas Realtor</span>
       </a>
