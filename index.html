@@ -1037,6 +1037,40 @@ a { color: inherit; text-decoration: none; }
 .btn-arrow { display: inline-block; transition: transform 0.3s ease; }
 .btn:hover .btn-arrow { transform: translateX(4px); }
 
+/* ABOUT — gentle motion on portrait + tiles */
+.about-portrait img {
+  transition: transform 1.2s cubic-bezier(.22,.61,.36,1);
+  transform: scale(1.02);
+  animation: about-portrait-settle 1.4s 0.2s ease both;
+}
+@keyframes about-portrait-settle {
+  from { transform: scale(1.06) translateY(8px); opacity: 0.6; }
+  to   { transform: scale(1.02) translateY(0); opacity: 1; }
+}
+.about-tile { transition: transform 0.45s ease; }
+.about-tile:hover { transform: translateY(-4px); }
+.about-tile-image img {
+  transition: transform 1.1s cubic-bezier(.22,.61,.36,1), filter 0.4s ease;
+}
+.about-tile:hover .about-tile-image img {
+  transform: scale(1.06);
+  filter: saturate(1.05);
+}
+
+/* CONTACT — slow ken-burns on the skyline */
+.contact-skyline img {
+  transition: transform 1.2s ease;
+  animation: contact-skyline-kb 26s ease-in-out infinite alternate;
+}
+@keyframes contact-skyline-kb {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.07) translate(-1%, -1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-skyline img,
+  .about-portrait img { animation: none; }
+}
+
 /* COMMUNITY PAGE */
 .community-hero {
   position: relative;

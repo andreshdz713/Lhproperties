@@ -207,10 +207,10 @@ function About({ onNav }) {
       <section className="section">
         <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 96, alignItems: 'start' }}>
           <div style={{ position: 'sticky', top: 120 }}>
-            <div style={{ height: 720, overflow: 'hidden' }}>
+            <div className="about-portrait" style={{ height: 720, overflow: 'hidden' }}>
               <img src={window.__resources.loanPortrait} alt="Loan Hoang portrait" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
             </div>
-            <div className="mono" style={{ fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--taupe)', marginTop: 16, display: 'flex', justifyContent: 'space-between' }}>
+            <div className="mono fade-up d2" style={{ fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--taupe)', marginTop: 16, display: 'flex', justifyContent: 'space-between' }}>
               <span>Portrait</span><span>Houston · 2026</span>
             </div>
           </div>
@@ -258,8 +258,8 @@ function About({ onNav }) {
               ['Slow Travel', 'Always planning the next', window.__resources.slowTravel, '50% 35%'],
               ['Morning Walks', 'Sunshine and palm trees', window.__resources.morningWalks, '50% 60%'],
             ].map(([t, d, img, pos], i) => (
-              <div key={i}>
-                <div style={{ height: 300, marginBottom: 16, overflow: 'hidden', background: 'var(--bone)' }}>
+              <div key={i} className="about-tile">
+                <div className="about-tile-image" style={{ height: 300, marginBottom: 16, overflow: 'hidden', background: 'var(--bone)' }}>
                   {img ? (
                     <img src={img} alt={t} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: pos, display: 'block' }} />
                   ) : (
@@ -332,7 +332,7 @@ function Contact({ initialIntent }) {
       <section className="section">
         <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 96, alignItems: 'start' }}>
           <div style={{ position: 'sticky', top: 120 }}>
-            <div style={{ height: 380, marginBottom: 40, overflow: 'hidden' }}>
+            <div className="contact-skyline" style={{ height: 380, marginBottom: 40, overflow: 'hidden', position: 'relative' }}>
               <img src={window.__resources.houstonSkyline} alt="Houston Skyline" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             <div className="eyebrow" style={{ marginBottom: 20 }}>Direct</div>
