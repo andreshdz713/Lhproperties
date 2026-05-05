@@ -150,8 +150,6 @@ function Community({ onNav }) {
             </div>
             <a
               href="https://www.har.com/idx/neighborhood/search?sitetype=aws&cid=717039"
-              target="_blank"
-              rel="noopener"
               className="btn btn-clay"
             >
               Browse All Neighborhoods <span className="btn-arrow">→</span>
