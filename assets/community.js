@@ -149,11 +149,23 @@ function Community({ onNav }) {
               </h3>
             </div>
             <a
-              href="https://www.har.com/idx/neighborhood/search?sitetype=aws&cid=717039"
+              href="#all-neighborhoods"
+              onClick={(e) => { e.preventDefault(); document.getElementById('all-neighborhoods')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
               className="btn btn-clay"
             >
-              Browse All Neighborhoods <span className="btn-arrow">→</span>
+              Browse All Neighborhoods <span className="btn-arrow">↓</span>
             </a>
+          </div>
+          <div id="all-neighborhoods" className="community-explore-embed">
+            <iframe
+              src="https://www.har.com/idx/neighborhood/search?sitetype=aws&cid=717039"
+              title="Browse all Houston neighborhoods on HAR"
+              style={{ width: '100%', height: 1200, border: 'none', display: 'block', background: 'var(--bone)' }}
+              loading="lazy"
+            />
+            <p className="mono" style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--taupe)', marginTop: 16, textAlign: 'right' }}>
+              Search powered by HAR.com · Loan Hoang · Agent ID 717039
+            </p>
           </div>
         </div>
       </section>

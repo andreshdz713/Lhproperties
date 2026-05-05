@@ -2361,6 +2361,19 @@ body::before {
   .community-explore { margin-top: 48px; padding-top: 36px; }
   .community-explore-inner { align-items: flex-start; }
 }
+.community-explore-embed {
+  margin-top: 48px;
+  border: 1px solid var(--ink-20);
+  background: var(--bone);
+  overflow: hidden;
+  scroll-margin-top: 96px;
+}
+.community-explore-embed + p,
+.community-explore-embed p { margin-top: 16px; }
+@media (max-width: 720px) {
+  .community-explore-embed { margin-top: 36px; }
+  .community-explore-embed iframe { height: 900px !important; }
+}
 
 /* Mobile spacing tightening on the symmetric stats / philosophy */
 @media (max-width: 640px) {
