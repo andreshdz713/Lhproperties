@@ -2334,6 +2334,34 @@ body::before {
   background-position: 0 0, 2px 2px;
 }
 
+/* COMMUNITY — explore-all CTA below the six-neighborhood grid */
+.community-explore {
+  margin-top: 72px;
+  padding-top: 48px;
+  border-top: 1px solid var(--ink-10);
+  position: relative;
+}
+.community-explore::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 96px;
+  height: 1px;
+  background: var(--gold);
+}
+.community-explore-inner {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+@media (max-width: 720px) {
+  .community-explore { margin-top: 48px; padding-top: 36px; }
+  .community-explore-inner { align-items: flex-start; }
+}
+
 /* Mobile spacing tightening on the symmetric stats / philosophy */
 @media (max-width: 640px) {
   section[style*="padding: '160px 48px'"] { padding: var(--pad-medium) 22px !important; }

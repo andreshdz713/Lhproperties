@@ -139,6 +139,25 @@ function Community({ onNav }) {
             ))}
           </div>
         </div>
+        <div className="container community-explore">
+          <div className="community-explore-rule" />
+          <div className="community-explore-inner">
+            <div className="community-explore-copy">
+              <div className="eyebrow" style={{ marginBottom: 12 }}>Beyond these six</div>
+              <h3 className="serif" style={{ fontSize: 'clamp(26px, 2.6vw, 36px)', lineHeight: 1.15, fontWeight: 400, letterSpacing: '-0.01em', maxWidth: 520 }}>
+                Houston has dozens more pockets worth knowing.
+              </h3>
+            </div>
+            <a
+              href="https://www.har.com/idx/neighborhood/search?sitetype=aws&cid=717039"
+              target="_blank"
+              rel="noopener"
+              className="btn btn-clay"
+            >
+              Browse All Neighborhoods <span className="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* MARQUEE OF MORE NEIGHBORHOODS */}
