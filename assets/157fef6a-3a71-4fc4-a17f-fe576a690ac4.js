@@ -38,12 +38,11 @@ function HeroQuiet({ onNav }) {
             </p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <a
-                href="https://www.har.com/idx/mls/listing?sitetype=aws&cid=717039&mlsorgid=1&allmls=n"
-                target="_blank"
-                rel="noopener"
+                href="#featured-listings"
+                onClick={(e) => { e.preventDefault(); document.getElementById('featured-listings')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
                 className="btn btn-ink"
               >
-                Featured Properties <span className="btn-arrow">→</span>
+                Featured Properties <span className="btn-arrow">↓</span>
               </a>
               <a
                 href="#about"
@@ -118,7 +117,7 @@ function HeroSplit() {
 
 function FeaturedListings() {
   return (
-    <section className="section">
+    <section id="featured-listings" className="section" style={{ scrollMarginTop: 96 }}>
       <div className="container">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 48, borderBottom: '1px solid var(--ink-20)', paddingBottom: 24, flexWrap: 'wrap', gap: 24 }}>
           <div>
