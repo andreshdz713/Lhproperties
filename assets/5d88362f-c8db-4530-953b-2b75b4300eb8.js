@@ -16,105 +16,9 @@ function PageHeader({ eyebrow, title, intro }) {
 
 }
 
-function EditorialListing({ num, address, price, area, beds, baths, sqft, year, description, features, variant, reverse }) {
-  return (
-    <article className="editorial-listing" style={{ padding: '100px 48px', borderBottom: '1px solid var(--ink-20)' }}>
-      <div className="container editorial-listing-grid" style={{ display: 'grid', gridTemplateColumns: reverse ? '1fr 1.2fr' : '1.2fr 1fr', gap: 64, alignItems: 'start' }}>
-        <div className="zoom-wrap editorial-listing-image" style={{ height: 620, order: reverse ? 2 : 1 }}>
-          <Placeholder label={`Property ${num} · Exterior`} variant={variant} />
-        </div>
-        <div className="editorial-listing-info" style={{ order: reverse ? 1 : 2, position: 'sticky', top: 120 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 32 }}>
-            <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--taupe)' }}>№ {num} / Featured</div>
-            <div className="mono" style={{ fontSize: 11, letterSpacing: '0.18em', color: 'var(--taupe)' }}>Active Listing</div>
-          </div>
-          <h2 className="serif editorial-listing-address" style={{ fontSize: 56, lineHeight: 1.05, fontWeight: 300, letterSpacing: '-0.015em', marginBottom: 8 }}>
-            {address}
-          </h2>
-          <div className="eyebrow" style={{ marginBottom: 40 }}>{area}</div>
-          <div className="serif editorial-listing-price" style={{ fontSize: 36, fontWeight: 300, marginBottom: 40, color: 'var(--ink)' }}>
-            {price}
-          </div>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: 'var(--ink-70)', marginBottom: 40 }}>
-            {description}
-          </p>
-          <div className="editorial-listing-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--ink-20)', borderBottom: '1px solid var(--ink-20)', padding: '24px 0', marginBottom: 32 }}>
-            {[['Beds', beds], ['Baths', baths], ['Sq Ft', sqft], ['Built', year]].map(([l, v]) =>
-            <div key={l}>
-                <div className="mono" style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--taupe)', marginBottom: 6 }}>{l}</div>
-                <div className="serif" style={{ fontSize: 24, fontWeight: 400 }}>{v}</div>
-              </div>
-            )}
-          </div>
-          <ul style={{ listStyle: 'none', marginBottom: 40 }}>
-            {features.map((f, i) =>
-            <li key={i} style={{ fontSize: 14, padding: '8px 0', borderBottom: '1px solid var(--ink-10)', color: 'var(--ink-70)', display: 'flex', justifyContent: 'space-between' }}>
-                <span>{f[0]}</span><span className="mono" style={{ fontSize: 11, color: 'var(--taupe)' }}>{f[1]}</span>
-              </li>
-            )}
-          </ul>
-          <a
-            href={`mailto:loan@hoangproperties.com?subject=${encodeURIComponent(`Tour Request — ${address}`)}&body=${encodeURIComponent(`Hi Loan,\n\nI'd like to schedule a tour of:\n\n${address}\n${area}\n${price}\n\nMy preferred dates and times:\n(please share a few options)\n\nA bit about me:\nName:\nPhone:\nEmail:\n\nThank you,\n`)}`}
-            className="btn btn-ink">
-            
-            Request a Tour <span className="btn-arrow">→</span>
-          </a>
-        </div>
-      </div>
-    </article>);
-
-}
-
 function Buying({ onNav, initialTab }) {
   const [tab, setTab] = useState(initialTab || 'overview');
   useEffect(() => {if (initialTab) setTab(initialTab);}, [initialTab]);
-  const listings = [
-  {
-    num: '01',
-    address: '2847 Inwood Drive',
-    price: '$1,250,000',
-    area: 'River Oaks · Houston',
-    beds: '4', baths: '3.5', sqft: '3,480', year: '2012',
-    description: 'A poised family home set behind a live oak canopy in River Oaks. Open plan living with white oak floors, a chef\'s kitchen with Thermador appliances, and a primary suite that opens to a private garden terrace. Walking distance to River Oaks Country Club.',
-    features: [
-    ['Lot Size', '0.28 Acres'],
-    ['Garage', '2 car attached'],
-    ['HOA', 'None'],
-    ['School', 'River Oaks Elementary']],
-
-    variant: 'cream'
-  },
-  {
-    num: '02',
-    address: '512 Heights Boulevard',
-    price: '$685,000',
-    area: 'Heights · Houston',
-    beds: '3', baths: '2', sqft: '2,180', year: '1924',
-    description: 'A restored Craftsman bungalow on the Heights Boulevard esplanade. Original heart pine floors, period casework, and a thoughtful rear addition housing a sun lit kitchen and den. A short walk to White Oak Music Hall and the bayou trail.',
-    features: [
-    ['Lot Size', '6,600 Sq Ft'],
-    ['Parking', 'Rear detached'],
-    ['HOA', 'None'],
-    ['Historic', 'Heights District']],
-
-    variant: 'clay',
-    reverse: true
-  },
-  {
-    num: '03',
-    address: '18 Shadowood Court',
-    price: '$2,150,000',
-    area: 'Memorial · Houston',
-    beds: '5', baths: '4.5', sqft: '5,240', year: '2018',
-    description: 'A contemporary estate on a gated Memorial cul de sac. Floor to ceiling glass framing a resort style pool, a chef\'s kitchen with twin islands, and a detached casita perfectly suited as a guest house or studio. Zoned to Spring Branch ISD.',
-    features: [
-    ['Lot Size', '0.52 Acres'],
-    ['Garage', '3 car attached'],
-    ['Pool', 'Heated salt water'],
-    ['School', 'Memorial Drive Elem.']],
-
-    variant: 'taupe'
-  }];
 
   return (
     <div>
@@ -172,15 +76,32 @@ function Buying({ onNav, initialTab }) {
             )}
         </div>
       </section>
-      <section style={{ padding: '80px 48px 40px' }}>
+      <section className="section">
         <div className="container">
-          <div className="eyebrow" style={{ marginBottom: 24 }}>Current Brokerage Homes Available ·&nbsp;</div>
-          <h2 className="serif" style={{ fontSize: 'clamp(44px, 5vw, 72px)', lineHeight: 1.05, fontWeight: 300, letterSpacing: '-0.015em' }}>
-            Three homes worth knowing.
-          </h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 40, borderBottom: '1px solid var(--ink-20)', paddingBottom: 24, flexWrap: 'wrap', gap: 24 }}>
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 16 }}>Find Your Home · Houston MLS</div>
+              <h2 className="serif" style={{ fontSize: 'clamp(44px, 5vw, 72px)', lineHeight: 1.05, fontWeight: 300, letterSpacing: '-0.015em' }}>
+                Search every home <em style={{ color: 'var(--clay)' }}>for sale</em>.
+              </h2>
+              <p style={{ fontSize: 15, color: 'var(--ink-70)', marginTop: 16, maxWidth: 580 }}>
+                The full Houston MLS, filtered by what matters to you. See something worth a closer look? Reach out and I&apos;ll walk it with you.
+              </p>
+            </div>
+          </div>
+          <div style={{ border: '1px solid var(--ink-20)', background: 'var(--bone)', overflow: 'hidden' }}>
+            <iframe
+              src="https://www.har.com/idx/mls/search?sitetype=aws&cid=717039&allmls=y&for_sale=1"
+              title="Search Houston MLS Homes For Sale · Loan Hoang"
+              style={{ width: '100%', height: 1200, border: 'none', display: 'block', background: 'var(--bone)' }}
+              loading="lazy"
+            />
+          </div>
+          <p className="mono" style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--taupe)', marginTop: 16, textAlign: 'right' }}>
+            Search powered by HAR.com · Loan Hoang · Agent ID 717039
+          </p>
         </div>
       </section>
-      {listings.map((l) => <EditorialListing key={l.num} {...l} />)}
       <CTA onNav={onNav} label="Begin your search" sub="Tell me what home means to you." />
         </>
       }
